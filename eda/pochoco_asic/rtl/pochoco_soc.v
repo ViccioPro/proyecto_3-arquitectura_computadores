@@ -92,6 +92,7 @@ module pochoco_soc #(
 
   pochoco_ram u_ram (
     .clk_i     (clk),
+    .rst_ni    (rst_ni),
     .a_req_i   (instr_req),
     .a_addr_i  (instr_addr),
     .a_rdata_o (instr_rdata),

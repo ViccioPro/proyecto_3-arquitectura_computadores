@@ -11,8 +11,8 @@
 # 0x8000000C -> contador de ciclos
 # 0x80000010 -> contador de decimas
 #
-# 25 MHz
-# 2.500.000 ciclos = 0,1 segundos
+# 10 MHz
+# 1.000.000 ciclos = 0,1 segundos
 # ============================================================
 
 _start:

@@ -25,8 +25,7 @@ module espino_controller (
 
   assign stall_o  = rf_wait | lsu_busy_i;
 
-  assign pc_set_o = instr_valid_i & rf_ready_i
-                    & ~lsu_busy_i
+  assign pc_set_o = instr_valid_i & ~stall_o
                     & (branch_taken_i | jump_i);
 
 endmodule

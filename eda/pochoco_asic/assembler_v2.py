@@ -335,9 +335,84 @@ def generar_rom(words, ruta):
         f.write("endmodule\n")
 
 
+def generar_mem_ff(words, ruta, data_words=0):
+    """Escribe la memoria unificada de flip-flops (estrategia 2). El
+    programa queda como valor de reset de los flip-flops."""
+    n = len(words) + data_words
+    aw = max(1, (n - 1).bit_length())
+    L = []
+    L.append("// ARCHIVO GENERADO AUTOMATICAMENTE por assembler_v2.py")
+    L.append("// a partir del programa en ensamblador. No editar a mano.")
+    L.append("// Estrategia 2 (seccion 3.2): memoria unificada de flip-flops.")
+    L.append(f"// {n} palabras = {len(words)} de programa + {data_words} de datos.")
+    L.append("// El programa se carga en los flip-flops durante el reset.")
+    L.append("")
+    L.append("module pochoco_ram (")
+    L.append("  input  wire        clk_i,")
+    L.append("  input  wire        rst_ni,")
+    L.append("")
+    L.append("  // Port A: instruction")
+    L.append("  input  wire        a_req_i,")
+    L.append("  input  wire [31:0] a_addr_i,")
+    L.append("  output reg  [31:0] a_rdata_o,")
+    L.append("")
+    L.append("  // Port B: data")
+    L.append("  input  wire        b_req_i,")
+    L.append("  input  wire        b_we_i,")
+    L.append("  input  wire [3:0]  b_be_i,")
+    L.append("  input  wire [31:0] b_addr_i,")
+    L.append("  input  wire [31:0] b_wdata_i,")
+    L.append("  output reg  [31:0] b_rdata_o")
+    L.append(");")
+    L.append("")
+    L.append(f"  localparam integer NumWords = {n};")
+    L.append(f"  localparam integer AddrW    = {aw};")
+    L.append("")
+    L.append("  // Contenido de reset: palabra 0 en los bits menos significativos.")
+    L.append("  localparam [32*NumWords-1:0] PROG = {")
+    contenido = list(words) + [0] * data_words
+    for i in range(n - 1, -1, -1):
+        coma = "," if i > 0 else ""
+        L.append(f"    32'h{contenido[i]:08x}{coma}  // palabra {i}")
+    L.append("  };")
+    L.append("")
+    L.append("  reg  [32*NumWords-1:0] mem;")
+    L.append("  wire [AddrW-1:0] a_word = a_addr_i[AddrW+1:2];")
+    L.append("  wire [AddrW-1:0] b_word = b_addr_i[AddrW+1:2];")
+    L.append("")
+    L.append("  integer i;")
+    L.append("")
+    L.append("  // Carga del programa en reset y escritura por bytes (puerto B)")
+    L.append("  always @(posedge clk_i or negedge rst_ni) begin")
+    L.append("    if (!rst_ni) begin")
+    L.append("      mem <= PROG;")
+    L.append("    end else if (b_req_i && b_we_i) begin")
+    L.append("      for (i = 0; i < NumWords; i = i + 1) begin")
+    L.append("        if (b_word == i) begin")
+    L.append("          if (b_be_i[0]) mem[32*i      +: 8] <= b_wdata_i[7:0];")
+    L.append("          if (b_be_i[1]) mem[32*i + 8  +: 8] <= b_wdata_i[15:8];")
+    L.append("          if (b_be_i[2]) mem[32*i + 16 +: 8] <= b_wdata_i[23:16];")
+    L.append("          if (b_be_i[3]) mem[32*i + 24 +: 8] <= b_wdata_i[31:24];")
+    L.append("        end")
+    L.append("      end")
+    L.append("    end")
+    L.append("  end")
+    L.append("")
+    L.append("  // Lectura sincronica (1 ciclo), igual que la memoria original")
+    L.append("  always @(posedge clk_i) begin")
+    L.append("    if (a_req_i)")
+    L.append("      a_rdata_o <= (a_word < NumWords) ? mem[32*a_word +: 32] : 32'h00000013;")
+    L.append("    b_rdata_o <= (b_word < NumWords) ? mem[32*b_word +: 32] : 32'h00000000;")
+    L.append("  end")
+    L.append("")
+    L.append("endmodule")
+    with open(ruta, "w") as f:
+        f.write("\n".join(L) + "\n")
+
+
 def main():
-    if len(sys.argv) not in (3, 4):
-        print("Uso: python3 assembler_v2.py entrada.s salida.hex [salida_rom.v]")
+    if len(sys.argv) not in (3, 4, 5):
+        print("Uso: python3 assembler_v2.py entrada.s salida.hex [rom_s1.v] [mem_s2.v]")
         sys.exit(1)
     with open(sys.argv[1]) as f:
         lines = f.readlines()
@@ -345,8 +420,10 @@ def main():
     with open(sys.argv[2], "w") as f:
         for w in words:
             f.write(f"{w:08x}\n")
-    if len(sys.argv) == 4:
+    if len(sys.argv) >= 4:
         generar_rom(words, sys.argv[3])
+    if len(sys.argv) == 5:
+        generar_mem_ff(words, sys.argv[4])
 
 
 if __name__ == "__main__":

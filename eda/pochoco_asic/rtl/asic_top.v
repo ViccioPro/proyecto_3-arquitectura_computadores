@@ -20,7 +20,7 @@ module asic_top (
 );
 
   pochoco_soc #(
-    .TenthCycles (2500000)         // pendiente: se recalcula en la seccion 3.4
+    .TenthCycles (1000000)         // 10 MHz: 1.000.000 ciclos por decima
   ) u_pochoco (
     .i_Clk        (clk_i),
     .i_Rst_n      (rst_ni),

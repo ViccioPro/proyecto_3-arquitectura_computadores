@@ -1,0 +1,13 @@
+{
+  "DESIGN_NAME": "asic_top",
+  "PDK": "gf180mcuD",
+  "VERILOG_FILES": [
+    "dir::rtl/*.v",
+    "dir::rtl/espino_core/*.v",
+    "dir::rtl/mem_s1/*.v"
+  ],
+  "CLOCK_PORT": "clk_i",
+  "CLOCK_PERIOD": 54.5,
+  "FP_CORE_UTIL": 40,
+  "SYNTH_HIERARCHY_MODE": "deferred_flatten"
+}

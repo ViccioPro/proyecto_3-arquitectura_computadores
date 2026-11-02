@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<rect width="800" height="450" fill="white"/>
+<text x="400" y="42" text-anchor="middle" font-family="Arial" font-size="22" font-weight="bold">Utilización vs errores DRC iniciales</text>
+<line x1="65" y1="365" x2="750" y2="365" stroke="black"/>
+<rect x="105" y="355.2149877149877" width="60" height="9.785012285012286" fill="#3168a8"/>
+<text x="135" y="345.2149877149877" text-anchor="middle" font-family="Arial" font-size="15">59</text>
+<text x="135" y="390" text-anchor="middle" font-family="Arial" font-size="15">40%</text>
+<rect x="215" y="353.2248157248157" width="60" height="11.775184275184275" fill="#3168a8"/>
+<text x="245" y="343.2248157248157" text-anchor="middle" font-family="Arial" font-size="15">71</text>
+<text x="245" y="390" text-anchor="middle" font-family="Arial" font-size="15">50%</text>
+<rect x="325" y="95.0" width="60" height="270.0" fill="#3168a8"/>
+<text x="355" y="85.0" text-anchor="middle" font-family="Arial" font-size="15">1628</text>
+<text x="355" y="390" text-anchor="middle" font-family="Arial" font-size="15">60%</text>
+<rect x="435" y="359.1953316953317" width="60" height="5.804668304668304" fill="#3168a8"/>
+<text x="465" y="349.1953316953317" text-anchor="middle" font-family="Arial" font-size="15">35</text>
+<text x="465" y="390" text-anchor="middle" font-family="Arial" font-size="15">70%</text>
+<rect x="545" y="357.03931203931205" width="60" height="7.96068796068796" fill="#3168a8"/>
+<text x="575" y="347.03931203931205" text-anchor="middle" font-family="Arial" font-size="15">48</text>
+<text x="575" y="390" text-anchor="middle" font-family="Arial" font-size="15">72%</text>
+<rect x="655" y="337.96683046683046" width="60" height="27.033169533169534" fill="#3168a8"/>
+<text x="685" y="327.96683046683046" text-anchor="middle" font-family="Arial" font-size="15">163</text>
+<text x="685" y="390" text-anchor="middle" font-family="Arial" font-size="15">73%</text>
+<text x="400" y="425" text-anchor="middle" font-family="Arial" font-size="13">Primera iteración de routing. Todas las corridas finalizaron con 0 errores DRC.</text>
+</svg>

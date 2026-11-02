@@ -1,0 +1,49 @@
+PUNTO 3.7 - SIMULACION FUNCIONAL POSTSINTESIS
+
+Herramientas:
+- Icarus Verilog
+- Yosys / LibreLane
+- PDK gf180mcuD
+- Biblioteca gf180mcu_fd_sc_mcu7t5v0
+
+Configuracion:
+- Simulacion sin retardos anotados (sin SDF).
+- TenthCycles = 100 para acelerar la prueba.
+- Ambas versiones usan identicos estimulos y reloj.
+- El ASIC oficial no fue modificado.
+
+PRUEBA 1: RESPUESTA CORRECTA
+
+Ronda iniciada: ciclo 225.
+Objetivo: 0010.
+Boton correcto presionado: ciclo 3504.
+
+Duracion RTL:          3341 ciclos.
+Duracion postsintesis: 3341 ciclos.
+Diferencia:               0 ciclos.
+
+RESULTADO: OK.
+
+PRUEBA 2: RESPUESTA INCORRECTA
+
+Objetivo: 0100.
+Boton presionado: 1000 (incorrecto).
+
+Pulsacion: ciclo 6806.
+Error EE: ciclo 6827 en ambas versiones.
+Nueva ronda: ciclo 6881 en ambas versiones.
+
+RESULTADO: OK.
+
+VERIFICACION ADICIONAL
+
+Las salidas de LEDs, los dos displays y SPI
+se compararon en cada ciclo de simulacion.
+
+No se detectaron diferencias entre RTL y
+el netlist postsintesis.
+
+CONCLUSION
+
+La simulacion funcional RTL y postsintesis
+coincide para los escenarios comprobados.
