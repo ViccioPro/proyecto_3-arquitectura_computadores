@@ -1,0 +1,23 @@
+{
+  "DESIGN_NAME": "game_top",
+  "PDK": "gf180mcuD",
+  "VERILOG_FILES": [
+    "dir::../rtl/espino_core/espino_register_file.v",
+    "dir::../fpga_orig/game_top.v",
+    "dir::../fpga_orig/pochoco_periph.v",
+    "dir::../fpga_orig/pochoco_ram.v",
+    "dir::../fpga_orig/pochoco_soc.v",
+    "dir::../rtl/espino_core/espino_alu.v",
+    "dir::../rtl/espino_core/espino_controller.v",
+    "dir::../rtl/espino_core/espino_core.v",
+    "dir::../rtl/espino_core/espino_decoder.v",
+    "dir::../rtl/espino_core/espino_id_stage.v",
+    "dir::../rtl/espino_core/espino_if_stage.v",
+    "dir::../rtl/espino_core/espino_load_store_unit.v",
+    "dir::../rtl/pochoco_spi_slave.v",
+    "dir::../rtl/pochoco_cycle_counter.v"
+  ],
+  "CLOCK_PORT": "i_Clk",
+  "CLOCK_PERIOD": 100,
+  "FP_CORE_UTIL": 40
+}

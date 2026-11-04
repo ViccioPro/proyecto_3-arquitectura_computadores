@@ -1,0 +1,18 @@
+# Resultados temporales de LibreLane
+**/runs/
+**/tmp/
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+
+# Archivos de simulación
+*.vcd
+*.fst
+*.vvp
+
+# Configuración local de VS Code
+.vscode/
+
+# LibreLane (herramienta externa)
+/eda/librelane/

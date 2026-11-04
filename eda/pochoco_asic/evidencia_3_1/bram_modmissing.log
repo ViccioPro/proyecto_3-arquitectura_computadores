@@ -1,0 +1,22 @@
+%Error-MODMISSING: /home/andres_berrios_l/eda/proyecto_3-arquitectura_computadores/eda/pochoco_asic_2/fpga_orig/espino_register_file.v:22:3: Cannot find file containing module: 'SB_RAM40_4K'
+   22 |   SB_RAM40_4K #(
+      |   ^~~~~~~~~~~
+                   ... For error description see https://verilator.org/warn/MODMISSING?v=5.044
+                   ... This may be because there's no search path specified with -I<dir>.
+                   ... Looked in:
+                        SB_RAM40_4K
+                        SB_RAM40_4K.v
+                        SB_RAM40_4K.sv
+                        obj_dir/SB_RAM40_4K
+                        obj_dir/SB_RAM40_4K.v
+                        obj_dir/SB_RAM40_4K.sv
+%Error-MODMISSING: /home/andres_berrios_l/eda/proyecto_3-arquitectura_computadores/eda/pochoco_asic_2/fpga_orig/espino_register_file.v:33:3: Cannot find file containing module: 'SB_RAM40_4K'
+   33 |   SB_RAM40_4K #(
+      |   ^~~~~~~~~~~
+%Warning-WIDTHEXPAND: /home/andres_berrios_l/eda/proyecto_3-arquitectura_computadores/eda/pochoco_asic_2/fpga_orig/pochoco_periph.v:46:29: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'tenth_divider' generates 22 bits.
+                                                                                                                                         : ... note: In instance 'game_top.u_pochoco.u_periph'
+   46 |           if (tenth_divider == TENTH_CYCLES - 1) begin
+      |                             ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.044
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Error: Exiting due to 2 error(s)

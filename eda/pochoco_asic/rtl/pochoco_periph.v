@@ -34,7 +34,7 @@ module pochoco_periph #(
   wire [31:0] cycle_counter;
 
   // Contador de decimas de segundo.
-  // A 25 MHz: 2.500.000 ciclos = 0,1 segundos.
+  // asic_top configura 1.000.000 ciclos = 0,1 segundos a 10 MHz.
   reg [21:0] tenth_divider;
   reg [15:0] tenth_counter;
 

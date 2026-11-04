@@ -1,0 +1,24 @@
+==================================
+ COMPARACION RTL VS POSTSINTESIS
+==================================
+Inicio: pulsacion en ciclo 158
+Ronda iniciada: RTL=225 GATE=225
+Objetivo: 0010 en ciclo 3255
+Boton correcto en ciclo 3504
+
+RESULTADO RONDA CORRECTA
+RTL:  3341 ciclos
+GATE: 3341 ciclos
+RONDA CORRECTA: OK
+
+Objetivo segunda ronda: 0100
+Boton incorrecto: 1000
+Boton incorrecto en ciclo 6806
+Error detectado: RTL=6827 GATE=6827
+Ronda reiniciada: RTL=6881 GATE=6881
+
+==================================
+ TEST 3.7 OK
+ RTL Y POSTSINTESIS COINCIDEN
+==================================
+sim_3_7/tb_compare.v:189: $finish called at 68805000 (1ps)

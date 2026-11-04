@@ -5,9 +5,10 @@
 // - Puerto B: RAM de datos de DataWords palabras con flip-flops.
 
 module pochoco_ram #(
-  parameter DataWords = 16
+  parameter DataWords = 2
 ) (
   input  wire        clk_i,
+  input  wire        rst_ni,     // no se usa en la estrategia 1,
 
   // Port A: instruction
   input  wire        a_req_i,
