@@ -1,0 +1,4 @@
+109c109
+<     else if (access & ~we_i) begin
+---
+>     else begin  // 3.4: rdata_o se actualiza en todos los ciclos

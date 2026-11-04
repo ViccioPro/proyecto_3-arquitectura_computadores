@@ -1,9 +1,7 @@
-// Register file para ASIC: 16 registros x 32 bits implementados con flip-flops.
+// Register file para ASIC: 15 registros (x1-x15) x 32 bits implementados con flip-flops.
 // Reemplaza la version de FPGA basada en SB_RAM40_4K (BRAM del iCE40).
 // Se conserva la lectura sincronica (1 ciclo de latencia) de la BRAM original
 // y se fuerza x0 = 0, ya que en silicio los flip-flops no se inicializan.
-// No tenemos idea de si va a funcionar correctamente o no
-// Quedará documentado en el informe!!!
 
 module espino_register_file (
   input  wire        clk_i,

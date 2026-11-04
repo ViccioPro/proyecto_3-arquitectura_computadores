@@ -1,0 +1,3 @@
+u_pochoco.u_core.u_rf. 1965
+u_pochoco.u_core.u_id.u_alu. 589
+u_pochoco.u_periph.u_cycle_counter. 114
